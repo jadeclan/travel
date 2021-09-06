@@ -9,7 +9,11 @@ var validateEmail = function(email) {
 
 //Create schema and model
 const UserSchema = new Schema({
-  name: String,
+  name: {
+    type: String,
+    required: 'Username is required',
+    unique: true
+  },
   email: {
     type: String,
         trim: true,
@@ -18,6 +22,10 @@ const UserSchema = new Schema({
         required: 'Email address is required',
         validate: [validateEmail, 'Please fill a valid email address'],
         match: [/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/, 'Please fill a valid email address']
+  },
+  password: {
+    type: String,
+    required: true
   },
   mailingAddress: String
 });

@@ -1,7 +1,5 @@
-const mocha = require('mocha');
-const assert = require('assert');
-
 const Destination = require('../models/destination');
+const assert = require('assert');
 
 describe('Saving a destination', function(){
   it('Saves a destination to the database', function(done){
